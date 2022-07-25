@@ -1,0 +1,6 @@
+boto3
+gluonnlp
+mxnet == 1.9.1
+sentencepiece
+torch
+transformers >= 4.8.1
