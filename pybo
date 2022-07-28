@@ -19,8 +19,8 @@ import json
 
 app = Flask(__name__)
 
-#GPU 사용
-device = torch.device("cuda:0")
+#GPU, CPU 사용
+device = torch.device('cuda:0' if torch.cuda.is_available() else 'cpu')
 
 #BERT 모델, Vocabulary 불러오기 필수
 bertmodel, vocab = get_pytorch_kobert_model()
