@@ -139,13 +139,13 @@ def predict(predict_sentence):
                 probability.append(np.round(logit, 3))
 
             if np.argmax(logits) == 0:
-                emotion = '공포'
+                emotion = 'FEAR'
             elif np.argmax(logits) == 1:
-                emotion = '분노'
+                emotion = 'ANGER'
             elif np.argmax(logits) == 2:
-                emotion = '슬픔'
+                emotion = 'SAD'
             elif np.argmax(logits) == 3:
-                emotion = '행복'
+                emotion = 'JOY'
 
             probability.append(emotion)
             print(probability)
