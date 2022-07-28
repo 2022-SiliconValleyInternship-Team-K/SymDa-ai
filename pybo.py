@@ -152,20 +152,20 @@ def predict(predict_sentence):
     return emotion
 
 
-# 예측 모델 설정
 @app.route('/')
-def hello():
-    response = requests.get('http://ec2-3-37-88-234.ap-northeast-2.compute.amazonaws.com:8080/diary/content')
-    # predict_sentence = json.loads(response.text)
-    print(response)
-    res = predict(response)
-    # res = f"0:{res[0]}<br>1:{res[1]}<br>2:{res[2]}<br>3:{res[3]}"
-    return res
-
-@app.route('/test', methods=['GET'])
 def hello_world():
     return 'Hello World!'
 
 
+# 예측 모델 설정
+@app.route('/emotion', methods=['POST'])
+def hello():
+    content = request.json.get('content')
+    print(content)
+    res = predict(content)
+    # res = f"0:{res[0]}<br>1:{res[1]}<br>2:{res[2]}<br>3:{res[3]}"
+    return res
+
+
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5000, debug=True)
+    app.run(host='0.0.0.0', port=80, debug=True)
